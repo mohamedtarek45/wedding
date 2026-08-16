@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Heart, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import weddingData from "../data/weddingData.json";
 
 export default function LoadingScreen({ onStartReveal, onComplete }) {
   const { t } = useTranslation(["loading", "invitationHeader"]);
@@ -17,6 +18,9 @@ export default function LoadingScreen({ onStartReveal, onComplete }) {
     if (hasRunRef.current) return;
     hasRunRef.current = true;
 
+    let isMounted = true;
+    let completeTimer = null;
+
     // Detect Lighthouse / PageSpeed audit bot
     const isBot =
       typeof navigator !== "undefined" &&
@@ -28,22 +32,62 @@ export default function LoadingScreen({ onStartReveal, onComplete }) {
       return;
     }
 
-    // 1. Trigger single smooth reveal after 650ms
-    const openTimer = setTimeout(() => {
+    const heroPhoto =
+      weddingData.assets?.heroPhoto ||
+      "/fafd_compressed.webp";
+
+    const preloadImage = (src) => {
+      return new Promise((resolve) => {
+        if (!src) return resolve();
+        const img = new Image();
+        img.src = src;
+
+        if (img.complete) {
+          if (typeof img.decode === "function") {
+            img.decode().then(resolve).catch(resolve);
+          } else {
+            resolve();
+          }
+          return;
+        }
+
+        img.onload = () => {
+          if (typeof img.decode === "function") {
+            img.decode().then(resolve).catch(resolve);
+          } else {
+            resolve();
+          }
+        };
+
+        img.onerror = () => resolve();
+      });
+    };
+
+    // 1. Wait for both min aesthetic delay & hero photo to be fully loaded and decoded
+    const minDelay = new Promise((resolve) => setTimeout(resolve, 700));
+    const imageLoad = preloadImage(heroPhoto);
+    const safetyTimeout = new Promise((resolve) => setTimeout(resolve, 6000));
+
+    Promise.race([Promise.all([minDelay, imageLoad]), safetyTimeout]).then(() => {
+      if (!isMounted) return;
+
+      // Start revealing content under the curtain
       if (onStartReveal) onStartReveal();
       setIsOpen(true);
-    }, 650);
 
-    // 2. Unmount after curtain slide finishes (650ms + 750ms = 1400ms)
-    const completeTimer = setTimeout(() => {
-      if (onComplete) onComplete();
-    }, 1400);
+      // Unmount after curtain slide finishes (750ms animation)
+      completeTimer = setTimeout(() => {
+        if (isMounted && onComplete) {
+          onComplete();
+        }
+      }, 750);
+    });
 
     return () => {
-      clearTimeout(openTimer);
-      clearTimeout(completeTimer);
+      isMounted = false;
+      if (completeTimer) clearTimeout(completeTimer);
     };
-  }, []); // Run strictly once
+  }, [onStartReveal, onComplete]);
 
   return (
     <div

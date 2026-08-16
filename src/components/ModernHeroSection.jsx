@@ -12,7 +12,7 @@ export default function ModernHeroSection() {
 
   const photoSrc =
     weddingData.assets?.heroPhoto ||
-    "/vecteezy.webp";
+    "/fafd_compressed.webp";
 
   const scrollToContent = () => {
     window.scrollTo({
