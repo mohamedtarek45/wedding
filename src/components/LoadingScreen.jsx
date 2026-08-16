@@ -8,6 +8,13 @@ export default function LoadingScreen({ onStartReveal, onComplete }) {
   const { t } = useTranslation(["loading", "invitationHeader"]);
   const [isOpen, setIsOpen] = useState(false);
   const hasRunRef = useRef(false);
+  const onStartRevealRef = useRef(onStartReveal);
+  const onCompleteRef = useRef(onComplete);
+
+  useEffect(() => {
+    onStartRevealRef.current = onStartReveal;
+    onCompleteRef.current = onComplete;
+  });
 
   const groomInitial = t("loading:couple.initials.groom", { defaultValue: "A" });
   const brideInitial = t("loading:couple.initials.bride", { defaultValue: "I" });
@@ -18,17 +25,14 @@ export default function LoadingScreen({ onStartReveal, onComplete }) {
     if (hasRunRef.current) return;
     hasRunRef.current = true;
 
-    let isMounted = true;
-    let completeTimer = null;
-
     // Detect Lighthouse / PageSpeed audit bot
     const isBot =
       typeof navigator !== "undefined" &&
       /Lighthouse|Chrome-Lighthouse|PageSpeed|PTST/i.test(navigator.userAgent);
 
     if (isBot) {
-      if (onStartReveal) onStartReveal();
-      if (onComplete) onComplete();
+      onStartRevealRef.current?.();
+      onCompleteRef.current?.();
       return;
     }
 
@@ -68,26 +72,23 @@ export default function LoadingScreen({ onStartReveal, onComplete }) {
     const imageLoad = preloadImage(heroPhoto);
     const safetyTimeout = new Promise((resolve) => setTimeout(resolve, 6000));
 
-    Promise.race([Promise.all([minDelay, imageLoad]), safetyTimeout]).then(() => {
-      if (!isMounted) return;
+    let timer = null;
 
+    Promise.race([Promise.all([minDelay, imageLoad]), safetyTimeout]).then(() => {
       // Start revealing content under the curtain
-      if (onStartReveal) onStartReveal();
+      onStartRevealRef.current?.();
       setIsOpen(true);
 
-      // Unmount after curtain slide finishes (750ms animation)
-      completeTimer = setTimeout(() => {
-        if (isMounted && onComplete) {
-          onComplete();
-        }
-      }, 750);
+      // Unmount after curtain slide finishes (750ms animation + 50ms buffer)
+      timer = setTimeout(() => {
+        onCompleteRef.current?.();
+      }, 800);
     });
 
     return () => {
-      isMounted = false;
-      if (completeTimer) clearTimeout(completeTimer);
+      if (timer) clearTimeout(timer);
     };
-  }, [onStartReveal, onComplete]);
+  }, []);
 
   return (
     <div

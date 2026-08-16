@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { useNavigation, Outlet } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -14,6 +14,14 @@ export default function MainLayout() {
   const navigation = useNavigation();
   // State can be "idle", "submitting", or "loading"
   const isLoading = navigation.state === "loading";
+
+  const handleStartReveal = useCallback(() => {
+    setIsReady(true);
+  }, []);
+
+  const handleComplete = useCallback(() => {
+    setShowLoader(false);
+  }, []);
 
   // Update page title dynamically based on language & couple name
   useEffect(() => {
@@ -38,8 +46,8 @@ export default function MainLayout() {
       <AnimatePresence>
         {showLoader && (
           <LoadingScreen
-            onStartReveal={() => setIsReady(true)}
-            onComplete={() => setShowLoader(false)}
+            onStartReveal={handleStartReveal}
+            onComplete={handleComplete}
           />
         )}
       </AnimatePresence>
