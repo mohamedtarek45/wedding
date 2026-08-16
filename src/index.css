@@ -1,13 +1,178 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary);
+  --color-wedding-green: #2d442c;
+  --color-wedding-olive: #364f33;
+  --color-wedding-dark: #283a27;
+  --color-wedding-bg: #f8f7f3;
+  --font-century: 'Century', 'Century Schoolbook', 'TeX Gyre Schola', 'Century Gothic', serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary: #f8f7f3;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #f8f7f3;
+  color: #2d442c;
+}
+
+.font-script {
+  font-family: 'Alex Brush', cursive, 'Playfair Display', serif;
+}
+
+.font-serif-luxury {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-century {
+  font-family: 'Century', 'Century Schoolbook', 'TeX Gyre Schola', 'Century Gothic', serif;
+}
+
+.font-sans-clean {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Arabic Luxury Fonts Mapping when RTL is active */
+[dir="rtl"] body,
+[dir="rtl"] #root {
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+}
+
+[dir="rtl"] .font-script,
+html[lang="ar"] .font-script {
+  font-family: 'Aref Ruqaa', 'Amiri', cursive, serif;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+[dir="rtl"] .font-serif-luxury,
+html[lang="ar"] .font-serif-luxury {
+  font-family: 'Amiri', 'Cormorant Garamond', serif;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+[dir="rtl"] .font-century,
+html[lang="ar"] .font-century {
+  font-family: 'Cairo', 'Tajawal', sans-serif;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+[dir="rtl"] .font-sans-clean,
+html[lang="ar"] .font-sans-clean {
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+/* Adjust tracking & uppercase for Arabic elements */
+[dir="rtl"] .tracking-\[0\.16em\],
+[dir="rtl"] .tracking-\[0\.22em\],
+[dir="rtl"] .tracking-\[0\.24em\],
+[dir="rtl"] .tracking-\[0\.3em\],
+[dir="rtl"] .tracking-\[0\.08em\],
+[dir="rtl"] .tracking-\[0\.14em\],
+[dir="rtl"] .tracking-wider,
+[dir="rtl"] .tracking-wide {
+  letter-spacing: 0.01em !important;
+}
+
+/* Image defaults */
+img {
+  max-width: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Hide scrollbar completely across all browsers */
+html, body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
+/* Professional Subtle Continuous Animations */
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@keyframes gentle-sway-left {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(-0.6deg);
+  }
+  50% {
+    transform: translate3d(0, -4px, 0) rotate(0.6deg);
+  }
+}
+
+@keyframes gentle-sway-right {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0.6deg);
+  }
+  50% {
+    transform: translate3d(0, -4px, 0) rotate(-0.6deg);
+  }
+}
+
+@keyframes soft-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 7s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.animate-sway-left {
+  animation: gentle-sway-left 10s ease-in-out infinite;
+  transform-origin: top center;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.animate-sway-right {
+  animation: gentle-sway-right 11s ease-in-out infinite;
+  transform-origin: bottom center;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.animate-heartbeat {
+  animation: soft-pulse 3.5s ease-in-out infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }

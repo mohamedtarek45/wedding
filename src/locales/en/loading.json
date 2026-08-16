@@ -1,0 +1,21 @@
+{
+  "subtitle": "Wedding Invitation",
+  "couple": {
+    "groom": "Ahmed",
+    "bride": "Israa",
+    "fullName": "Ahmed & Israa",
+    "initials": {
+      "groom": "A",
+      "bride": "I"
+    }
+  },
+  "date": "February 22, 2026",
+  "year": "2026",
+  "loading": "Loading",
+  "steps": [
+    "Preparing the celebration...",
+    "Gathering sweet memories...",
+    "Arranging love & blessings...",
+    "Welcome to our special day ✨"
+  ]
+}

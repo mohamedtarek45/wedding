@@ -1,0 +1,204 @@
+{
+  "couple": {
+    "groom": {
+      "en": "Ahmed",
+      "ar": "أحمد"
+    },
+    "bride": {
+      "en": "Israa",
+      "ar": "إسراء"
+    },
+    "fullName": {
+      "en": "Ahmed & Israa",
+      "ar": "أحمد & إسراء"
+    },
+    "initials": {
+      "groom": {
+        "en": "A",
+        "ar": "أ"
+      },
+      "bride": {
+        "en": "I",
+        "ar": "إ"
+      }
+    }
+  },
+  "event": {
+    "date": {
+      "en": "August 22, 2026",
+      "ar": "22 أغسطس 2026"
+    },
+    "year": "2026",
+    "isoDate": "2026-08-22T18:30:00+03:00",
+    "dayOfWeek": {
+      "en": "Saturday",
+      "ar": "السبت"
+    },
+    "formattedDate": {
+      "en": "22 Aug 2026",
+      "ar": "22 أغسطس 2026"
+    },
+    "time": {
+      "en": "At 6:30 PM",
+      "ar": "الساعة 6:30 مساءً"
+    },
+    "timeLabel": {
+      "en": "Ceremony",
+      "ar": "مراسم الحفل"
+    },
+    "city": {
+      "en": "Al Maadi, Cairo",
+      "ar": "المعادي، القاهرة"
+    },
+    "venue": {
+      "en": "Royal Maxim",
+      "ar": "رويال مكسيم"
+    },
+    "venueLocation": {
+      "en": "Cairo, Egypt",
+      "ar": "القاهرة، مصر"
+    },
+    "mapUrl": "https://maps.google.com",
+    "mapButtonText": {
+      "en": "View on Map",
+      "ar": "الموقع على الخريطة"
+    }
+  },
+  "invitation": {
+    "tagline": {
+      "en": "Together with their families,",
+      "ar": "بمباركة العائلتين الكريمتين،"
+    },
+    "message": {
+      "en": "Joyfully invite you to celebrate their wedding weekend",
+      "ar": "يتشرفان بدعوتكم لمشاركتهما فرحة عقد القران وحفل الزفاف"
+    },
+    "loadingSubtitle": {
+      "en": "Wedding Invitation",
+      "ar": "دعوة زفاف"
+    }
+  },
+  "countdown": {
+    "title": {
+      "en": "Counting Down to Forever",
+      "ar": "العد التنازلي للحظة المنتظرة"
+    },
+    "tagline": {
+      "en": "The Special Day Awaits",
+      "ar": "نقترب من اليوم المميز"
+    },
+    "quote": {
+      "en": "Every second brings us closer to our new beginning together.",
+      "ar": "كل ثانية ودقيقة تقربنا من بداية أجمل فصول حياتنا معاً."
+    },
+    "days": {
+      "en": "Days",
+      "ar": "أيام"
+    },
+    "hours": {
+      "en": "Hours",
+      "ar": "ساعات"
+    },
+    "minutes": {
+      "en": "Minutes",
+      "ar": "دقائق"
+    },
+    "seconds": {
+      "en": "Seconds",
+      "ar": "ثواني"
+    }
+  },
+  "celebration": {
+    "title": {
+      "en": "The Celebration",
+      "ar": "حفل الزفاف"
+    },
+    "quote": {
+      "en": "An evening of love, laughter & beautiful memories.",
+      "ar": "أمسية تفيض بالحب والبهجة وأجمل الذكريات."
+    },
+    "description": {
+      "en": "We cannot wait to celebrate this unforgettable milestone surrounded by the warmth and joy of our dearest family and friends.",
+      "ar": "نتطلع بشوق للاحتفال بهذه المناسبة المميزة وسط دفء وسعادة أغلى الأهل والأصدقاء."
+    }
+  },
+  "letter": {
+    "salutation": {
+      "en": "Dearest Family & Friends,",
+      "ar": "أحباءنا من الأهل والأصدقاء،"
+    },
+    "title": {
+      "en": "You are Cordially Invited",
+      "ar": "دعوة من القلب"
+    },
+    "paragraphs": {
+      "en": [
+        "Because you have shared in our lives with your warmth, friendship, and love, we would be deeply honored to have you celebrate with us as we exchange our vows and begin our new journey together.",
+        "\"Your presence and blessings will make our special night truly unforgettable.\""
+      ],
+      "ar": [
+        "لأنكم شاركتمونا أجمل لحظات حياتنا بمحبتكم ودفء حضوركم، يسرنا ويشرفنا حضوركم لتكتمل فرحتنا ونحن نبدأ معاً فصلاً جديداً من حياتنا.",
+        "«حضوركم ومباركتكم يمنحان ليلتنا بهاءً وفرحة لا تُنسى»"
+      ]
+    },
+    "signOff": {
+      "en": "With all our love,",
+      "ar": "بكل حب وتقدير،"
+    }
+  },
+  "loadingSteps": {
+    "en": [
+      "Preparing the celebration...",
+      "Gathering sweet memories...",
+      "Arranging love & blessings...",
+      "Welcome to our special day ✨"
+    ],
+    "ar": [
+      "نجهز تفاصيل الاحتفال...",
+      "نجمع أرق الذكريات...",
+      "ننسق مشاعر المحبة والبركة...",
+      "أهلاً بكم في يومنا المميز ✨"
+    ]
+  },
+  "pageTitle": {
+    "en": "Ahmed & Israa | Wedding Celebration",
+    "ar": "أحمد وإسراء | حفل الزفاف"
+  },
+  "assets": {
+    "heroBg": "/Group 1.webp",
+    "heroPhoto": "/fafd_compressed.webp",
+    "coupleIllustration": "/rrr.webp",
+    "heartsSvg": "/vecteezy_hand-drawn-continuous-line-drawing-of-hearts-wedding-love_5713428.svg",
+    "chairImg": "/png-elegant-floral-wedding-chair-illustration 1.webp",
+    "umbrellaImg": "/green-striped-beach-umbrella-watercolor-hand-drawn-cute-illustration-isolated-white-background 1.webp",
+    "tableImg": "/watercolor-dining-table-set-white-background (1) 1.webp",
+    "cornerLeftImg": "/Rectangle.webp",
+    "cornerRightImg": "/Rectangle2.webp",
+    "ornamentSvg": "/image.svg"
+  },
+
+
+  "notFound": {
+    "code": "404",
+    "badge": {
+      "en": "Page Not Found",
+      "ar": "الصفحة غير موجودة"
+    },
+    "title": {
+      "en": "Lost in the Celebration",
+      "ar": "عفواً.. ضللت طريق الحفل"
+    },
+    "description": {
+      "en": "It looks like this page has wandered away from our wedding venue. Let's get you back to the celebration!",
+      "ar": "يبدو أنك ابتعدت عن مسار الاحتفال.. لا تقلق، فرحتنا تكتمل بوجودك في صفحة الدعوة الرئيسية."
+    },
+    "homeBtn": {
+      "en": "Back to Wedding Invitation",
+      "ar": "العودة لبطاقة الدعوة الرئيسية"
+    },
+    "storyBtn": {
+      "en": "Our Story & Wishes",
+      "ar": "قصتنا وأجمل التهاني"
+    }
+  }
+}

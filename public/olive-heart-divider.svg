@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 20" fill="none">
+  <defs>
+    <linearGradient id="fadeL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#30401C" stop-opacity="0" />
+      <stop offset="60%" stop-color="#30401C" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#30401C" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="fadeR" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#30401C" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#30401C" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#30401C" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left fading 1px line -->
+  <line x1="10" y1="10" x2="188" y2="10" stroke="url(#fadeL)" stroke-width="1" />
+
+  <!-- Center Heart (Exact Lucide Heart scaled and centered) -->
+  <g transform="translate(193, 3.5) scale(0.58)">
+    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" fill="#30401C" stroke="#30401C" stroke-width="1" />
+  </g>
+
+  <!-- Right fading 1px line -->
+  <line x1="212" y1="10" x2="390" y2="10" stroke="url(#fadeR)" stroke-width="1" />
+</svg>
