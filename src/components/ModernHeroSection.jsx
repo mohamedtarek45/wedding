@@ -33,7 +33,7 @@ export default function ModernHeroSection() {
           alt="Ahmed & Israa Wedding"
           decoding="async"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          className="absolute inset-0 w-full h-full !w-full !h-full min-w-full min-h-full object-cover object-[58%_center] sm:object-center will-change-transform"
+          className="absolute inset-0 w-full h-full !w-full !h-full min-w-full min-h-full object-cover object-[48%_center] sm:object-center will-change-transform"
           loading="eager"
           fetchPriority="high"
         />
