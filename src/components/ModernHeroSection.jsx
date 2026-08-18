@@ -71,7 +71,7 @@ export default function ModernHeroSection() {
           initial={{ opacity: 0, y: 20, scale: 0.95 }}
           animate={isReady ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.95 }}
           transition={{ duration: 0.95, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="font-script text-[2.5rem] xs:text-[2.9rem] sm:text-7xl md:text-8xl lg:text-[7.8rem] font-normal leading-none text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] px-1 whitespace-nowrap"
+          className="font-script text-[2.5rem] xs:text-[2.9rem] sm:text-7xl md:text-8xl lg:text-[7.8rem] font-normal leading-none text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] px-1 pb-4 whitespace-nowrap"
         >
           {t("coupleName", { defaultValue: "Ahmed & Israa" })}
         </motion.h1>
