@@ -1,7 +1,5 @@
 import React from "react";
 import ModernHeroSection from "../components/ModernHeroSection";
-import HeroSection from "../components/HeroSection";
-import InvitationHeader from "../components/InvitationHeader";
 import CountdownSection from "../components/CountdownSection";
 import WeddingEventDetails from "../components/WeddingEventDetails";
 import AfterWeddingSection from "../components/AfterWeddingSection";

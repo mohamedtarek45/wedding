@@ -51,6 +51,8 @@ export default function NotFound() {
           <img
             src={ornamentSvg}
             alt="Ornament"
+            loading="lazy"
+            decoding="async"
             className="w-full h-auto object-contain mx-auto"
           />
         </motion.div>

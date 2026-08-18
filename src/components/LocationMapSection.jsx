@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Navigation, Copy, Check, ExternalLink } from "lucide-react";
+import { MapPin, Navigation, Copy, Check, ExternalLink, Loader2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import weddingData from "../data/weddingData.json";
 import RoyalCornerOrnament from "./RoyalCornerOrnament";
@@ -28,6 +28,27 @@ export default function LocationMapSection() {
   const { t, i18n } = useTranslation("locationMap");
   const isAr = (i18n.language || "ar") === "ar";
   const [copied, setCopied] = useState(false);
+  const [shouldRenderMap, setShouldRenderMap] = useState(false);
+  const mapContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (shouldRenderMap) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldRenderMap(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "350px 0px" }
+    );
+
+    if (mapContainerRef.current) {
+      observer.observe(mapContainerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [shouldRenderMap]);
 
   const event = weddingData.event || {};
   const venue = event.venue?.[isAr ? "ar" : "en"] || (isAr ? "رويال مكسيم" : "Royal Maxim");
@@ -160,18 +181,32 @@ export default function LocationMapSection() {
         </div>
 
         {/* Map View Frame with Interactive Pin */}
-        <div className="relative w-full h-[250px] xs:h-[290px] sm:h-[340px] md:h-[370px] bg-[#eae7dc] overflow-hidden group">
-          <iframe
-            title="Google Maps Location"
-            src={mapEmbedUrl}
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="w-full h-full object-cover transition-opacity duration-300"
-          />
+        <div
+          ref={mapContainerRef}
+          className="relative w-full h-[250px] xs:h-[290px] sm:h-[340px] md:h-[370px] bg-[#eae7dc] overflow-hidden group flex items-center justify-center"
+        >
+          {shouldRenderMap ? (
+            <iframe
+              title="Google Maps Location"
+              src={mapEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full object-cover transition-opacity duration-300"
+            />
+          ) : (
+            <div className="flex flex-col items-center justify-center gap-2.5 text-[#785a1e] p-6">
+              <div className="w-12 h-12 rounded-full bg-[#c5a059]/20 flex items-center justify-center animate-pulse">
+                <MapPin className="w-6 h-6 text-[#785a1e]" />
+              </div>
+              <span className="font-century text-xs sm:text-sm text-[#364f33]/80 font-medium">
+                {isAr ? "جارٍ تحميل الخريطة التفاعلية..." : "Loading interactive map..."}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Bottom Actions Footer */}
