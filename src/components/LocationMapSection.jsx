@@ -88,7 +88,7 @@ export default function LocationMapSection() {
     <motion.section
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.4 }}
       variants={containerVariants}
       className="w-full relative py-6 sm:py-8 px-3 xs:px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center overflow-hidden z-10 max-w-4xl mx-auto"
     >

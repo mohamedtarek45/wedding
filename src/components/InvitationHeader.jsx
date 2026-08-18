@@ -36,7 +36,7 @@ export default function InvitationHeader() {
       variants={containerVariants}
       initial="hidden"
       whileInView={isReady ? "show" : undefined}
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.4 }}
       className="w-full flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 relative z-10 max-w-4xl mx-auto"
     >
       {/* 1. Top Tagline */}

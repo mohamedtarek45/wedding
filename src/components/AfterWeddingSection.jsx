@@ -116,7 +116,7 @@ export default function AfterWeddingSection() {
             key={i18n.language}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.75 }}
+            viewport={{ once: true, amount: 0.4 }}
             variants={fadeSide}
             className="w-full max-w-[280px] xs:max-w-[340px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[530px] flex justify-center items-center shrink-0"
           >

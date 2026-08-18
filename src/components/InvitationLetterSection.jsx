@@ -49,7 +49,7 @@ export default function InvitationLetterSection() {
     <motion.section
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.4 }}
       className="w-full mt-10 sm:mt-16 relative min-h-[380px] sm:min-h-[440px] md:min-h-[500px] flex flex-col items-center justify-center px-3 xs:px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-14 text-[#30401C] overflow-hidden"
     >
       {/* 1. Bottom Left Corner Illustration */}
@@ -57,7 +57,7 @@ export default function InvitationLetterSection() {
         variants={cornersVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.4 }}
         className="absolute left-0 bottom-0 w-24 xs:w-32 sm:w-48 md:w-64 lg:w-80 pointer-events-none z-0 opacity-40 sm:opacity-70 select-none animate-sway-left"
       >
         <img
@@ -74,7 +74,7 @@ export default function InvitationLetterSection() {
         variants={cornersVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.4 }}
         className="absolute right-0 bottom-0 w-24 xs:w-32 sm:w-48 md:w-64 lg:w-80 pointer-events-none z-0 opacity-40 sm:opacity-70 select-none animate-sway-right"
       >
         <img
@@ -91,7 +91,7 @@ export default function InvitationLetterSection() {
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.4 }}
         className="royal-card max-w-2xl w-full mx-auto relative z-10 text-center flex flex-col items-center justify-center px-5 xs:px-7 sm:px-10 md:px-14 py-8 sm:py-12 md:py-14 rounded-2xl xs:rounded-3xl shadow-[0_12px_40px_rgba(45,68,44,0.09)] mb-10 overflow-hidden"
       >
         <div className="royal-inner-border" />

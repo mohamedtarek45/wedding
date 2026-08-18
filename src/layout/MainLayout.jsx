@@ -6,6 +6,8 @@ import LoadingScreen from "../components/LoadingScreen";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import PageLoader from "../components/PageLoader";
 
+import weddingData from "../data/weddingData.json";
+
 export default function MainLayout() {
   const [showLoader, setShowLoader] = useState(true);
   const [isReady, setIsReady] = useState(false);
@@ -23,13 +25,31 @@ export default function MainLayout() {
     setShowLoader(false);
   }, []);
 
-  // Update page title dynamically based on language & couple name
+  // Update page title & meta dynamically based on language & weddingData.json
   useEffect(() => {
-    const title = t("common:pageTitle", {
-      defaultValue: "Ahmed & Israa | Wedding Celebration",
-    });
+    const isAr = i18n.language === "ar";
+    const lang = isAr ? "ar" : "en";
+    const groom = weddingData?.couple?.groom?.[lang] || (isAr ? "أحمد" : "Ahmed");
+    const bride = weddingData?.couple?.bride?.[lang] || (isAr ? "إسراء" : "Israa");
+    const couple = weddingData?.couple?.fullName?.[lang] || `${groom} & ${bride}`;
+    const venue = weddingData?.event?.venue?.[lang] || "";
+    const date = weddingData?.event?.date?.[lang] || "";
+
+    const title = isAr
+      ? `${couple} | دعوة حفل الزفاف 💍✨`
+      : `${couple} | Wedding Celebration 💍✨`;
     document.title = title;
-  }, [i18n.language, t]);
+
+    const descMeta = document.querySelector('meta[name="description"]');
+    if (descMeta) {
+      descMeta.setAttribute(
+        "content",
+        isAr
+          ? `يتشرف ${groom} و${bride} بدعوتكم لمشاركتهما فرحة عقد القران وحفل الزفاف يوم ${date} في ${venue}.`
+          : `${groom} & ${bride} cordially invite you to celebrate their wedding on ${date} at ${venue}.`
+      );
+    }
+  }, [i18n.language]);
 
   return (
     <div

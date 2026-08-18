@@ -5,12 +5,12 @@
       "ar": "أحمد"
     },
     "bride": {
-      "en": "Israa",
-      "ar": "إسراء"
+      "en": "Jasmine",
+      "ar": "ياسمين"
     },
     "fullName": {
-      "en": "Ahmed & Israa",
-      "ar": "أحمد & إسراء"
+      "en": "Ahmed & Jasmine",
+      "ar": "أحمد & ياسمين"
     },
     "initials": {
       "groom": {
@@ -18,8 +18,8 @@
         "ar": "أ"
       },
       "bride": {
-        "en": "I",
-        "ar": "إ"
+        "en": "J",
+        "ar": "ي"
       }
     }
   },
