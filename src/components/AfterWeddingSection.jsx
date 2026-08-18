@@ -3,6 +3,7 @@ import { Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import weddingData from "../data/weddingData.json";
+import RoyalCornerOrnament from "./RoyalCornerOrnament";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -49,12 +50,18 @@ export default function AfterWeddingSection() {
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.75 }}
+            viewport={{ once: true, amount: 0.4 }}
             variants={containerVariants}
-            className="flex flex-col items-center justify-center text-center max-w-lg w-full"
+            className="royal-card w-full max-w-lg rounded-2xl xs:rounded-3xl p-5 xs:p-7 sm:p-9 flex flex-col items-center justify-center text-center relative overflow-hidden"
           >
+            <div className="royal-inner-border" />
+            <RoyalCornerOrnament position="top-left" className="absolute top-1.5 left-1.5 xs:top-2 xs:left-2" />
+            <RoyalCornerOrnament position="top-right" className="absolute top-1.5 right-1.5 xs:top-2 xs:right-2" />
+            <RoyalCornerOrnament position="bottom-left" className="absolute bottom-1.5 left-1.5 xs:bottom-2 xs:left-2" />
+            <RoyalCornerOrnament position="bottom-right" className="absolute bottom-1.5 right-1.5 xs:bottom-2 xs:right-2" />
+
             {/* Top Vintage Ornament */}
-            <motion.div variants={fadeUp} className="w-20 xs:w-24 sm:w-28 h-auto mb-2 opacity-90">
+            <motion.div variants={fadeUp} className="w-20 xs:w-24 sm:w-28 h-auto mb-2 opacity-90 mx-auto">
               <img
                 src={ornamentSvg}
                 alt={t("ornamentAlt", { defaultValue: "Decorative Wedding Ornament" })}
@@ -75,7 +82,7 @@ export default function AfterWeddingSection() {
             {/* Poetic Subtitle */}
             <motion.p
               variants={fadeUp}
-              className="font-serif-luxury italic text-base xs:text-lg sm:text-xl md:text-2xl text-[#364f33] font-medium tracking-wide max-w-md leading-relaxed mt-1 px-2"
+              className="font-serif-luxury italic text-sm xs:text-base sm:text-lg md:text-xl text-[#785a1e] font-medium tracking-wide max-w-md leading-relaxed mt-1 px-2"
             >
               &quot;{t("quote", { defaultValue: "An evening of love, laughter & beautiful memories." })}&quot;
             </motion.p>
@@ -83,7 +90,7 @@ export default function AfterWeddingSection() {
             {/* Heartfelt Message */}
             <motion.p
               variants={fadeUp}
-              className="font-century text-xs xs:text-sm sm:text-base md:text-lg text-[#2d442c] font-normal max-w-md mt-3 sm:mt-4 leading-relaxed tracking-wide px-2"
+              className="font-century text-xs xs:text-sm sm:text-base text-[#2d442c]/90 font-normal max-w-md mt-3 sm:mt-4 leading-relaxed tracking-wide px-2"
             >
               {t("description", {
                 defaultValue:
@@ -96,11 +103,11 @@ export default function AfterWeddingSection() {
               variants={fadeUp}
               className="flex items-center justify-center gap-3 my-5 sm:my-6 w-full max-w-xs opacity-80"
             >
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#30401C]/40 to-[#30401C]/80" />
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#c5a059]/50 to-[#30401C]/80" />
               <div className="animate-heartbeat">
-                <Heart className="w-4 h-4 fill-[#30401C] text-[#30401C]" />
+                <Heart className="w-4 h-4 fill-[#785a1e] text-[#785a1e]" />
               </div>
-              <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#30401C]/40 to-[#30401C]/80" />
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#c5a059]/50 to-[#30401C]/80" />
             </motion.div>
           </motion.div>
 

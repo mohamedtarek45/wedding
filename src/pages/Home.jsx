@@ -5,6 +5,7 @@ import InvitationHeader from "../components/InvitationHeader";
 import CountdownSection from "../components/CountdownSection";
 import WeddingEventDetails from "../components/WeddingEventDetails";
 import AfterWeddingSection from "../components/AfterWeddingSection";
+import LocationMapSection from "../components/LocationMapSection";
 import InvitationLetterSection from "../components/InvitationLetterSection";
 
 export default function Home() {
@@ -22,8 +23,12 @@ export default function Home() {
       {/* 4. After Wedding Event Details */}
       <AfterWeddingSection />
 
-      {/* 5. Final Personal Invitation Letter Section */}
+      {/* 5. Venue Location & Google Maps Section with Pin */}
+      <LocationMapSection />
+
+      {/* 6. Final Personal Invitation Letter Section */}
       <InvitationLetterSection />
     </div>
   );
 }
+

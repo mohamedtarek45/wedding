@@ -176,3 +176,40 @@ html, body {
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
 }
+
+/* Luxury Royal Wedding Card Styles & Gold Accents */
+.royal-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(253, 252, 248, 0.92) 50%, rgba(255, 255, 255, 0.95) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  box-shadow: 0 12px 36px -6px rgba(45, 68, 44, 0.09), 0 0 0 1px rgba(197, 160, 89, 0.15) inset;
+}
+
+.royal-inner-border {
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(197, 160, 89, 0.32);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .royal-inner-border {
+    inset: 8px;
+  }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #8a6a24 0%, #c5a059 50%, #8a6a24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-pill-badge {
+  background: linear-gradient(135deg, rgba(197, 160, 89, 0.12) 0%, rgba(197, 160, 89, 0.05) 100%);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  color: #785a1e;
+}
+

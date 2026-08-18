@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Heart, Clock, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import weddingData from "../data/weddingData.json";
+import RoyalCornerOrnament from "./RoyalCornerOrnament";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -24,10 +25,11 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 25, scale: 0.95 },
   show: {
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
   },
 };
@@ -98,94 +100,113 @@ export default function CountdownSection() {
     <motion.section
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.35 }}
+      viewport={{ once: true, amount: 0.25 }}
       variants={containerVariants}
-      className="w-full relative py-8 sm:py-12 md:py-5 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center overflow-hidden z-10 max-w-5xl mx-auto"
+      className="w-full relative py-8 sm:py-12 md:py-14 px-3 xs:px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center overflow-hidden z-10 max-w-4xl mx-auto"
     >
-      {/* 1. Top Vintage Ornament */}
-      <motion.div
-        variants={fadeUp}
-        className="w-20 xs:w-24 sm:w-28 h-auto mb-2 opacity-90"
-      >
-        <img
-          src={ornamentSvg}
-          alt="Decorative Ornament"
-          decoding="async"
-          className="w-full h-auto object-contain"
-          loading="lazy"
+      {/* Royal Framed Stationery Card */}
+      <div className="royal-card w-full rounded-2xl xs:rounded-3xl p-5 xs:p-7 sm:p-10 md:p-12 relative overflow-hidden">
+        <div className="royal-inner-border" />
+        <RoyalCornerOrnament
+          position="top-left"
+          className="absolute top-1.5 left-1.5 xs:top-2 xs:left-2"
         />
-      </motion.div>
+        <RoyalCornerOrnament
+          position="top-right"
+          className="absolute top-1.5 right-1.5 xs:top-2 xs:right-2"
+        />
+        <RoyalCornerOrnament
+          position="bottom-left"
+          className="absolute bottom-1.5 left-1.5 xs:bottom-2 xs:left-2"
+        />
+        <RoyalCornerOrnament
+          position="bottom-right"
+          className="absolute bottom-1.5 right-1.5 xs:bottom-2 xs:right-2"
+        />
 
-      {/* 2. Top Tagline */}
-      <motion.p
-        variants={fadeUp}
-        className="font-serif-luxury uppercase tracking-[0.22em] sm:tracking-[0.3em] text-[11px] sm:text-xs md:text-sm text-[#364f33] font-normal"
-      >
-        {t("tagline", { defaultValue: "The Special Day Awaits" })}
-      </motion.p>
+        {/* 1. Top Vintage Ornament */}
+        <motion.div
+          variants={fadeUp}
+          className="w-20 xs:w-24 sm:w-28 h-auto mb-2 mx-auto opacity-90"
+        >
+          <img
+            src={ornamentSvg}
+            alt="Decorative Ornament"
+            decoding="async"
+            className="w-full h-auto object-contain"
+            loading="lazy"
+          />
+        </motion.div>
 
-      {/* 3. Cursive Title */}
-      <motion.h2
-        variants={fadeUp}
-        className="font-script text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-[5.2rem] text-[#2d442c] font-normal leading-tight my-2 drop-shadow-xs px-2"
-      >
-        {t("title", { defaultValue: "Counting Down to Forever" })}
-      </motion.h2>
+        {/* 2. Top Tagline */}
+        <motion.p
+          variants={fadeUp}
+          className="font-serif-luxury uppercase tracking-[0.22em] sm:tracking-[0.3em] text-[11px] sm:text-xs md:text-sm text-[#785a1e] font-semibold"
+        >
+          {t("tagline", { defaultValue: "The Special Day Awaits" })}
+        </motion.p>
 
-      {/* 4. Poetic Quote */}
-      <motion.p
-        variants={fadeUp}
-        className="font-serif-luxury italic text-sm xs:text-base sm:text-lg md:text-xl text-[#364f33] font-medium tracking-wide max-w-md sm:max-w-lg leading-relaxed px-2 mb-6 sm:mb-8"
-      >
-        &quot;
-        {t("quote", {
-          defaultValue:
-            "Every second brings us closer to our new beginning together.",
-        })}
-        &quot;
-      </motion.p>
+        {/* 3. Cursive Title */}
+        <motion.h2
+          variants={fadeUp}
+          className="font-script text-4xl xs:text-5xl sm:text-6xl md:text-7xl text-[#2d442c] font-normal leading-tight my-2 drop-shadow-xs px-2"
+        >
+          {t("title", { defaultValue: "Counting Down to Forever" })}
+        </motion.h2>
 
-      {/* 5. Luxury 4-Pill Countdown Cards Grid */}
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.7 }}
-        variants={containerVariants}
-        className="grid grid-cols-2 sm:grid-cols-4 gap-3 xs:gap-4 sm:gap-6 w-full max-w-3xl px-2"
-      >
-        {timeUnits.map((unit, index) => (
-          <motion.div
-            key={index}
-            variants={cardVariants}
-            whileHover={{ y: -4, transition: { duration: 0.25 } }}
-            className="group relative flex flex-col items-center justify-center p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/70 hover:bg-white/90 backdrop-blur-md border border-[#30401C]/15 hover:border-[#30401C]/30 shadow-xs hover:shadow-md overflow-hidden"
-          >
-            {/* Subtle Top Glow Highlight */}
-            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#30401C]/25 to-transparent group-hover:via-[#30401C]/50 transition-all duration-500" />
-            {/* Large Number */}
-            <span className="font-century text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-[#2d442c] tracking-tight tabular-nums drop-shadow-xs">
-              {unit.value}
-            </span>
+        {/* 4. Poetic Quote */}
+        <motion.p
+          variants={fadeUp}
+          className="font-serif-luxury italic text-xs xs:text-sm sm:text-base md:text-lg text-[#364f33]/90 font-medium tracking-wide max-w-md sm:max-w-lg leading-relaxed px-2 mb-6 sm:mb-8 mx-auto"
+        >
+          &quot;
+          {t("quote", {
+            defaultValue:
+              "Every second brings us closer to our new beginning together.",
+          })}
+          &quot;
+        </motion.p>
 
-            {/* Unit Label */}
-            <span className="font-serif-luxury uppercase tracking-[0.18em] sm:tracking-[0.24em] text-[10px] xs:text-[11px] sm:text-xs text-[#364f33] font-medium mt-1 sm:mt-2">
-              {unit.label}
-            </span>
-          </motion.div>
-        ))}
-      </motion.div>
+        {/* 5. Luxury 4-Pill Countdown Cards Grid */}
+        <motion.div
+          variants={containerVariants}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 xs:gap-3.5 sm:gap-5 w-full max-w-2xl mx-auto px-1"
+        >
+          {timeUnits.map((unit, index) => (
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              whileHover={{ y: -3, transition: { duration: 0.2 } }}
+              className="group relative flex flex-col items-center justify-center p-3.5 xs:p-4 sm:p-5 rounded-xl xs:rounded-2xl bg-white/90 backdrop-blur-sm border border-[#c5a059]/35 hover:border-[#c5a059]/60 shadow-[0_4px_16px_rgba(45,68,44,0.06)] hover:shadow-md  overflow-hidden"
+            >
+              {/* Subtle Top Gold Highlight */}
+              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#c5a059]/60 to-transparent group-hover:via-[#c5a059] " />
 
-      {/* 6. Decorative Heart Divider */}
-      <motion.div
-        variants={fadeUp}
-        className="flex items-center justify-center gap-3 mt-8 sm:mt-10 w-full max-w-xs opacity-80"
-      >
-        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#30401C]/40 to-[#30401C]/80" />
-        <div className="animate-heartbeat">
-          <Heart className="w-4 h-4 fill-[#30401C] text-[#30401C]" />
-        </div>
-        <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#30401C]/40 to-[#30401C]/80" />
-      </motion.div>
+              {/* Large Number */}
+              <span className="font-century text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-[#2d442c] tracking-tight tabular-nums drop-shadow-xs">
+                {unit.value}
+              </span>
+
+              {/* Unit Label */}
+              <span className="font-serif-luxury uppercase tracking-[0.16em] sm:tracking-[0.22em] text-[10px] xs:text-[11px] sm:text-xs text-[#785a1e] font-semibold mt-1 sm:mt-1.5">
+                {unit.label}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* 6. Decorative Heart Divider */}
+        <motion.div
+          variants={fadeUp}
+          className="flex items-center justify-center gap-3 mt-6 sm:mt-8 w-full max-w-xs mx-auto opacity-80"
+        >
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#c5a059]/50 to-[#30401C]/80" />
+          <div className="animate-heartbeat">
+            <Heart className="w-4 h-4 fill-[#785a1e] text-[#785a1e]" />
+          </div>
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#c5a059]/50 to-[#30401C]/80" />
+        </motion.div>
+      </div>
     </motion.section>
   );
 }
